@@ -5,26 +5,26 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:shephard/main.dart';
+import 'package:shephard/models/baptism_info.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  final baptism = BaptismInfo(1, '20/06/2020', 'Pastor Stephen Bonzoe', true);
+  final baptismJson = {
+    'id': 1,
+    'date': '20/06/2020',
+    'officiating_minister': 'Pastor Stephen Bonzoe',
+    'has_holy_ghost_baptism': true
+  };
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  test('BaptismInfo test', () {
+    expect(baptismJson, baptism.toJson());
+    expect(BaptismInfo.fromJson(baptismJson).id, baptism.id);
+    expect(BaptismInfo.fromJson(baptismJson).date, baptism.date);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(BaptismInfo.fromJson(baptismJson).officiatingMinister,
+        baptism.officiatingMinister);
+    expect(BaptismInfo.fromJson(baptismJson).hasHolyGhostBaptism,
+        baptism.hasHolyGhostBaptism);
   });
 }
