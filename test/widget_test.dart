@@ -7,6 +7,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shephard/models/baptism_info.dart';
+import 'package:shephard/utils/utils.dart';
 
 void main() {
   final baptism = BaptismInfo(1, '20/06/2020', 'Pastor Stephen Bonzoe', true);
@@ -17,6 +18,8 @@ void main() {
     'has_holy_ghost_baptism': true
   };
 
+  final date = DateTime.now();
+
   test('BaptismInfo test', () {
     expect(baptismJson, baptism.toJson());
     expect(BaptismInfo.fromJson(baptismJson).id, baptism.id);
@@ -26,5 +29,22 @@ void main() {
         baptism.officiatingMinister);
     expect(BaptismInfo.fromJson(baptismJson).hasHolyGhostBaptism,
         baptism.hasHolyGhostBaptism);
+  });
+
+  test('Utils Test', () {
+    DateTime now = DateTime.now();
+
+    expect('2022-8-16',
+        Utils.formatDate(date.toString(), formatOption: 'yyyy-M-d'));
+
+    expect('2022', Utils.formatDate(date.toString(), formatOption: 'yyyy'));
+
+    expect(
+        29,
+        Utils.daysSince(now
+            .add(
+              Duration(days: 30),
+            )
+            .toString()));
   });
 }
