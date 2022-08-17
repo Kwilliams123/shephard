@@ -10,10 +10,12 @@ import 'package:shephard/models/baptism_info.dart';
 import 'package:shephard/utils/utils.dart';
 
 void main() {
-  final baptism = BaptismInfo(1, '20/06/2020', 'Pastor Stephen Bonzoe', true);
+  final baptism =
+      BaptismInfo(1, '20/06/2020', 'Ashaiman', 'Pastor Stephen Bonzoe', true);
   final baptismJson = {
     'id': 1,
     'date': '20/06/2020',
+    'place': 'Ashaiman',
     'officiating_minister': 'Pastor Stephen Bonzoe',
     'has_holy_ghost_baptism': true
   };
