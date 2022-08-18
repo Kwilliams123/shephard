@@ -28,7 +28,7 @@ class StackButton extends StatelessWidget {
       right: 0,
       child: Container(
         width: size.width * 0.54,
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 20,
           bottom: 20,
           right: 30,

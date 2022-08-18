@@ -5,17 +5,37 @@ class CustomTextField extends StatelessWidget {
   String label;
   TextEditingController controller;
 
-  CustomTextField(this.hint, this.controller);
+  CustomTextField(this.hint, this.label, this.controller);
 
   @override
   Widget build(BuildContext context) {
     final textField = TextFormField(
-      controller: controller,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        hintText: hint,
       ),
     );
 
-    return textField;
+    final container = Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          const SizedBox(
+            height: 6,
+          ),
+          textField,
+        ],
+      ),
+    );
+
+    return container;
   }
 }
