@@ -8,12 +8,12 @@ class StackButton extends StatelessWidget {
     final register = Positioned(
       left: 0,
       child: Container(
-        width: size.width * 0.4,
-        padding: EdgeInsets.all(15),
+        width: size.width * 0.48,
+        padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
-            15,
+            25,
           ),
         ),
         child: const Text(
@@ -27,19 +27,24 @@ class StackButton extends StatelessWidget {
     final signup = Positioned(
       right: 0,
       child: Container(
-        width: size.width * 0.68,
-        padding: EdgeInsets.all(15),
+        width: size.width * 0.54,
+        padding: EdgeInsets.only(
+          top: 20,
+          bottom: 20,
+          right: 30,
+          left: 20,
+        ),
         decoration: const BoxDecoration(
-          color: Colors.grey,
+          color: Colors.blue,
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(15),
-            bottomRight: Radius.circular(15),
+            topRight: Radius.circular(25),
+            bottomRight: Radius.circular(25),
           ),
         ),
         child: const Text(
           'Sign Up',
           style: TextStyle(fontSize: 16, color: Colors.black),
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.right,
         ),
       ),
     );
@@ -52,7 +57,7 @@ class StackButton extends StatelessWidget {
       height: 60,
       width: size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Stack(
         children: [
