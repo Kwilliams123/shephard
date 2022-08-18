@@ -15,7 +15,7 @@ class _RegisterState extends State<Register> {
         'The Church of Pentecost Newtown Assembly Church Data App',
         style: TextStyle(
           color: Colors.black,
-          fontSize: 34,
+          fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
         textAlign: TextAlign.center,
@@ -62,6 +62,19 @@ class _RegisterState extends State<Register> {
       ),
     ]));
 
+    final bottomContent = Positioned(
+      bottom: 20,
+      child: Column(
+        children: [
+          button,
+          SizedBox(
+            height: 20,
+          ),
+          signInText,
+        ],
+      ),
+    );
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -71,17 +84,13 @@ class _RegisterState extends State<Register> {
             left: 20,
             bottom: 20,
           ),
-          child: Stack(
+          child: Column(
             children: [
               mainText,
-              Positioned(
-                bottom: 70,
-                child: button,
+              const SizedBox(
+                height: 200,
               ),
-              Positioned(
-                bottom: 20,
-                child: signInText,
-              ),
+              bottomContent,
             ],
           ),
         ),

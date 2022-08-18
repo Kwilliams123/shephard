@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
+class TermsAndConditions extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _TermsAndConditionsState createState() => _TermsAndConditionsState();
 }
 
-class _LoginState extends State<Login> {
+class _TermsAndConditionsState extends State<TermsAndConditions> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.grey,
           padding: const EdgeInsets.only(
-            top: 30,
-            bottom: 30,
-            right: 20,
+            top: 40,
             left: 20,
+            right: 20,
+            bottom: 20,
           ),
         ),
       ),
