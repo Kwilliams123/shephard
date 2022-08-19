@@ -11,8 +11,10 @@ class SocialDetailsForm extends StatefulWidget {
 class _SocialDetailsFormState extends State<SocialDetailsForm> {
   @override
   Widget build(BuildContext context) {
-    String selectedItem = 'MSLC';
+    String selectedItem = 'Select Education Level';
+    TextEditingController controller = TextEditingController();
     List<String> listOfEducationLevels = [
+      "Select Education Level",
       "MSLC",
       "O'Level",
       "A'Level",
@@ -28,16 +30,26 @@ class _SocialDetailsFormState extends State<SocialDetailsForm> {
       "Other",
     ];
     final occupationText =
-        CustomTextField('Enter your occupation', 'Occupation', null);
+        CustomTextField('Enter your occupation', 'Occupation', controller);
 
     final educationalLevel = CustomDropDown(
       items: listOfEducationLevels,
       selectedItem: selectedItem,
       hint: 'Select level of education',
+      label: 'Education Level',
     );
 
     final title = Header(
       'Social Details',
+    );
+
+    const educationText = Text(
+      'Education Level',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16,
+      ),
+      textAlign: TextAlign.left,
     );
 
     return Scaffold(

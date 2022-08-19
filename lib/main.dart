@@ -12,7 +12,7 @@ class ShephardApp extends StatelessWidget {
     return MultiProvider(
       providers: providers,
       child: const MaterialApp(
-        initialRoute: AppRoute.socialDetailsForm,
+        initialRoute: AppRoute.churchDetailsForm,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: routes.route,
       ),

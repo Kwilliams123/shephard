@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shephard/views/member_registration_form/church_details.dart';
 import 'package:shephard/views/member_registration_form/personal_details.dart';
 import 'package:shephard/views/member_registration_form/social_details.dart';
 import 'package:shephard/views/register/register.dart';
@@ -36,6 +37,12 @@ Route<dynamic> route(RouteSettings settings) {
     case AppRoute.socialDetailsForm:
       return MaterialPageRoute(
         builder: (context) => SocialDetailsForm(),
+      );
+      break;
+
+    case AppRoute.churchDetailsForm:
+      return MaterialPageRoute(
+        builder: (context) => ChurchDetailsForm(),
       );
       break;
   }
