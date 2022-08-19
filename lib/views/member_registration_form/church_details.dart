@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shephard/widet/content/custom_dropdown.dart';
 import 'package:shephard/widet/content/header.dart';
+import 'package:shephard/widet/content/yes_or_no_option.dart';
+import 'package:shephard/widet/textfield/date_field.dart';
 
 class ChurchDetailsForm extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class _ChurchDetailsFormState extends State<ChurchDetailsForm> {
   @override
   Widget build(BuildContext context) {
     final churchText = Header('Church Details');
+    String hasBeenBaptized;
     String selectedItem = 'Elder';
 
     List<String> churchStatus = [
@@ -29,6 +32,16 @@ class _ChurchDetailsFormState extends State<ChurchDetailsForm> {
       label: 'Select your status',
     );
 
+    final waterBaptismOptions = YesOrNoOption(
+      'Have you been baptized in water ?',
+      hasBeenBaptized,
+    );
+
+    var now = DateTime.now();
+
+    final baptismDate =
+        CustomDateField(title: 'Baptism Date', selectedDate: now);
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -41,10 +54,18 @@ class _ChurchDetailsFormState extends State<ChurchDetailsForm> {
           child: Column(
             children: [
               churchText,
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               churchDropDown,
+              const SizedBox(
+                height: 25,
+              ),
+              waterBaptismOptions,
+              const SizedBox(
+                height: 20,
+              ),
+              baptismDate,
             ],
           ),
         ),
